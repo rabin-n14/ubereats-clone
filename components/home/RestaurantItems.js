@@ -2,35 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-export const localRestaurants = [
-  {
-    name: "Beachside Bar",
-    image_url:
-      "https://img.delicious.com.au/n6d0eFUI/w759-h506-cfill/del/2020/02/vue-de-monde-126574-1.jpg",
-    categories: ["Cafe", "Bar"],
-    price: "$$",
-    reviews: 1244,
-    rating: 4.5,
-  },
-  {
-    name: "The Stars and Moon",
-    image_url:
-      "https://www.dmarge.com/wp-content/uploads/2016/12/eureka-960x580.jpg",
-    categories: ["Cafe", "Bar"],
-    price: "$$",
-    reviews: 1244,
-    rating: 3.7,
-  },
-  {
-    name: "Indian Grills",
-    image_url:
-      "https://www.madeinindia.net.au/wp-content/uploads/2017/11/DESI_DHABA-650x325.jpg",
-    categories: ["Indian", "Bar"],
-    price: "$$",
-    reviews: 1244,
-    rating: 3.9,
-  },
-];
+export const localRestaurants = [];
 
 export default function RestaurantItems(props) {
   return (

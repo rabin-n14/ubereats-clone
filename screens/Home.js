@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
-import Categories from "../components/Categories";
-import HeaderTabs from "../components/HeaderTabs";
+import { Divider } from "react-native-elements/dist/divider/Divider";
+
+import BottomTabs from "../components/home/BottomTabs";
+import Categories from "../components/home/Categories";
+import HeaderTabs from "../components/home/HeaderTabs";
 import RestaurantItems, {
   localRestaurants,
-} from "../components/RestaurantItems";
-import SearchBar from "../components/SearchBar";
+} from "../components/home/RestaurantItems";
+import SearchBar from "../components/home/SearchBar";
 
 const YELP_API_KEY =
   "SOVbm07QH71Mj5ma8UIcnJp4BP9lLrYXePtB66pSXEtp_pY4BsHRr-qen83lZIMRaWduz8WYbPJjpz9WUdGLnlm2ORwpgOHTwRhLOj9AicukVXImdcAsKDkq9AnhYXYx";
@@ -48,6 +51,8 @@ export default function Home() {
         <Categories />
         <RestaurantItems restaurantData={restaurantData} />
       </ScrollView>
+      <Divider width={1} />
+      <BottomTabs />
     </SafeAreaView>
   );
 }
