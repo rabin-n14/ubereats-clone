@@ -34,14 +34,6 @@ const foods = [
     image:
       "https://images.themodernproper.com/billowy-turkey/production/posts/2019/Easy-italian-salad-recipe-10.jpg?w=1200&h=1200&q=82&fm=jpg&fit=crop&fp-x=0.5&fp-y=0.5&dm=1614096227&s=c0f63a30cef3334d97f9ecad14be51da",
   },
-  {
-    title: "Chicken Caesar Salad",
-    description:
-      "One can never go wrong with a chicken caesar salad. Healthy option with greens and proteins!",
-    price: "$21.50",
-    image:
-      "https://images.themodernproper.com/billowy-turkey/production/posts/2019/Easy-italian-salad-recipe-10.jpg?w=1200&h=1200&q=82&fm=jpg&fit=crop&fp-x=0.5&fp-y=0.5&dm=1614096227&s=c0f63a30cef3334d97f9ecad14be51da",
-  },
 ];
 
 const styles = StyleSheet.create({
