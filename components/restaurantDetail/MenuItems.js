@@ -1,6 +1,5 @@
 import React from "react";
-import { ScrollView } from "react-native";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { Divider } from "react-native-elements/dist/divider/Divider";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { useDispatch, useSelector } from "react-redux";
@@ -73,8 +72,8 @@ export default function MenuItems({ restaurantName }) {
 
   return (
     <>
-      <View>
-        <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={{ flex: 0 }}>
+        <ScrollView showsVerticalScrollIndicator={true}>
           {foods.map((food, index) => (
             <View key={index}>
               <View style={styles.menuItemStyle}>
