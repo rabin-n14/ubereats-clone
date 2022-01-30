@@ -9,7 +9,7 @@ export default function OrderCompleted() {
   const [lastOrder, setLastOrder] = useState({
     items: [
       {
-        title: "Lasagna",
+        title: "Bologna",
         description: "With butter lettuce, tomato and sauce bechamel",
         price: "$13.50",
         image:
@@ -21,6 +21,7 @@ export default function OrderCompleted() {
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
   );
+
   const total = items
     .map((item) => Number(item.price.replace("$", "")))
     .reduce((prev, curr) => prev + curr, 0);
@@ -42,12 +43,18 @@ export default function OrderCompleted() {
         });
       });
 
-    return () => unsubscribe;
+    return () => unsubscribe();
   }, []);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-      <View style={{ margin: 15, alignItems: "center", height: "100%" }}>
+      <View
+        style={{
+          margin: 15,
+          alignItems: "center",
+          height: "100%",
+        }}
+      >
         <LottieView
           style={{ height: 100, alignSelf: "center", marginBottom: 30 }}
           source={require("../assets/animations/check-mark.json")}
@@ -59,14 +66,18 @@ export default function OrderCompleted() {
           Your order at {restaurantName} has been placed for {totalUSD}
         </Text>
         <ScrollView>
-          <MenuItems foods={lastOrder.items} hideCheckbox={true} />
+          <MenuItems
+            foods={lastOrder.items}
+            hideCheckbox={true}
+            marginLeft={10}
+          />
+          <LottieView
+            style={{ height: 200, alignSelf: "center" }}
+            source={require("../assets/animations/cooking.json")}
+            autoPlay
+            speed={0.5}
+          />
         </ScrollView>
-        <LottieView
-          style={{ height: 200, alignSelf: "center" }}
-          source={require("../assets/animations/cooking.json")}
-          autoPlay
-          speed={0.5}
-        />
       </View>
     </SafeAreaView>
   );
