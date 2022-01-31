@@ -1,9 +1,16 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Modal,
+  StyleSheet,
+  Animated,
+} from "react-native";
 import { useSelector } from "react-redux";
 import OrderItem from "./OrderItem";
 import firebase from "../../firebase";
-import LottieView from "lottie-react-native";
+import AnimatedLottieView from "lottie-react-native";
 
 export default function ViewCart({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -73,6 +80,22 @@ export default function ViewCart({ navigation }) {
       marginBottom: 10,
     },
   });
+
+  const progress = useRef(new Animated.Value(0)).current;
+
+  const handleLikeAnimation = () => {
+    Animated.loop(
+      Animated.timing(progress, {
+        toValue: 1,
+        duration: 15000,
+        useNativeDriver: true,
+      }),
+      { iterations: -1 }
+    ).start();
+  };
+  useEffect(() => {
+    handleLikeAnimation();
+  }, [progress]);
 
   const checkoutModalContent = () => {
     return (
@@ -187,11 +210,9 @@ export default function ViewCart({ navigation }) {
             width: "100%",
           }}
         >
-          <LottieView
-            style={{ height: 200 }}
+          <AnimatedLottieView
             source={require("../../assets/animations/scanner.json")}
-            autoPlay
-            speed={3}
+            progress={progress}
           />
         </View>
       ) : (

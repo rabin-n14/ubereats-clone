@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import React, { useEffect, useState, useRef } from "react";
+import { View, Text, SafeAreaView, ScrollView, Animated } from "react-native";
 import { useSelector } from "react-redux";
-import LottieView from "lottie-react-native";
 import firebase from "../firebase";
 import MenuItems from "../components/restaurantDetail/MenuItems";
+import AnimatedLottieView from "lottie-react-native";
+import LottieView from "lottie-react-native";
 
 export default function OrderCompleted() {
   const [lastOrder, setLastOrder] = useState({
@@ -46,6 +47,22 @@ export default function OrderCompleted() {
     return () => unsubscribe();
   }, []);
 
+  const progress = useRef(new Animated.Value(0)).current;
+
+  const handleAnimation = () => {
+    Animated.loop(
+      Animated.timing(progress, {
+        toValue: 1,
+        duration: 10000,
+        useNativeDriver: true,
+      }),
+      { iterations: -1 }
+    ).start();
+  };
+  useEffect(() => {
+    handleAnimation();
+  }, [progress]);
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
       <View
@@ -57,10 +74,8 @@ export default function OrderCompleted() {
       >
         <LottieView
           style={{ height: 100, alignSelf: "center", marginBottom: 30 }}
-          source={require("../assets/animations/check-mark.json")}
-          autoPlay
-          speed={0.5}
-          loop={false}
+          source={require("../assets/animations/confirm.json")}
+          progress={progress}
         />
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>
           Your order at {restaurantName} has been placed for {totalUSD}
@@ -71,13 +86,12 @@ export default function OrderCompleted() {
             hideCheckbox={true}
             marginLeft={10}
           />
-          <LottieView
-            style={{ height: 200, alignSelf: "center" }}
-            source={require("../assets/animations/cooking.json")}
-            autoPlay
-            speed={0.5}
-          />
         </ScrollView>
+        <AnimatedLottieView
+          style={{ height: 200, alignSelf: "center" }}
+          source={require("../assets/animations/cooking.json")}
+          progress={progress}
+        />
       </View>
     </SafeAreaView>
   );
