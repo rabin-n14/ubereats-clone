@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "ubereats-clone",
-    "slug": "ubereats-clone",
+    "name": "Rabin UberEats Clone",
+    "slug": "rabin-ubereats-clone",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/app-icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/app-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "io.expo.client"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,6 +28,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "React Native made by Rabin finished at 1/31/2022.  Built with YelpAPI, Firebase and Redux."
   }
 }
