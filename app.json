@@ -2,7 +2,9 @@
   "expo": {
     "name": "Rabin UberEats Clone",
     "slug": "rabin-ubereats-clone",
+    "owner": "portfolios",
     "version": "1.0.0",
+    "privacy": "public",
     "orientation": "portrait",
     "icon": "./assets/app-icon.png",
     "splash": {
@@ -29,6 +31,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": "React Native made by Rabin finished at 1/31/2022.  Built with YelpAPI, Firebase and Redux."
+    "description": "React Native UberEats app made by Rabin on Expo App. Unfortunately due to Privacy Policy of Apple, app can't be made public. However, reach out to Rabin with your Signed Up Expo Email so he can let access to view project in your iOS device."
   }
 }
